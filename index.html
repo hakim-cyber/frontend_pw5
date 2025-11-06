@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Fundamentals Quiz</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            line-height: 1.5;
+            margin: 0;
+            padding: 2rem 1rem;
+            max-width: 900px;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        form {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            gap: 0.5rem;
+            margin-block: 0.5rem 1rem;
+        }
+
+        label {
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            font: inherit;
+        }
+
+        /* Highlight invalid email specifically */
+        input[type="email"]:invalid {
+            border-color: #d33;
+            outline-color: #d33;
+            background: color-mix(in srgb, #d33 6%, transparent);
+        }
+
+        .hint {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .options {
+            display: grid;
+            gap: 0.4rem;
+            margin-top: 0.4rem;
+        }
+
+        button[type="submit"] {
+            padding: 0.6rem 1rem;
+            font: inherit;
+            border: 1px solid #0a7;
+            background: #0a7;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            filter: brightness(0.95);
+        }
+    </style>
+    <meta name="description" content="A simple quiz form demonstrating common HTML form controls.">
+    <meta name="author" content="Student">
+</head>
+<body>
+    <header>
+        <h1>Web Fundamentals Quiz</h1>
+        <p>
+            This  quiz checks your familiarity with common HTML  controls and
+            input semantics.
+        </p>
+    </header>
+
+    <main>
+        <form action="sendData.php" method="post">
+            <fieldset>
+                <legend>Student identification</legend>
+
+                <div class="form-row">
+                    <label for="firstname">First name</label>
+                    <input
+                        type="text"
+                        id="firstname"
+                        name="firstName"
+                        placeholder="e.g., Hakim"
+                        autocomplete="given-name"
+                        required>
+                </div>
+
+                <div class="form-row">
+                    <label for="lastname">Last name (surname)</label>
+                    <input
+                        type="text"
+                        id="lastname"
+                        name="lastName"
+                        placeholder="e.g., Aliyev"
+                        autocomplete="family-name"
+                        required>
+                </div>
+
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="name@example.com"
+                        autocomplete="email"
+                        inputmode="email"
+                        required>
+                    <p class="hint" id="email-hint">Email will be validated by  browser</p>
+                </div>
+            </fieldset>
+
+            <div class="form-row">
+                <label for="quiz-date">Quiz date</label>
+                <input type="date" id="quiz-date" name="quizDate" required>
+                <p class="hint">Note: The date picker UI may vary by browser and device</p>
+            </div>
+
+            <div class="form-row">
+                <span id="q1-label">Q1. Which standard defines how HTML is parsed by browsers?</span>
+                <div class="options" role="radiogroup" aria-labelledby="q1-label">
+                    <label><input type="radio" name="q1_standard" value="ecma" required> ECMAScript</label>
+                    <label><input type="radio" name="q1_standard" value="whatwg"> WHATWG HTML Standard</label>
+                    <label><input type="radio" name="q1_standard" value="css"> CSS2.1</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <span id="q2-label">Q2. Select the technologies that are primarily used for web presentation:</span>
+                <div class="options" aria-labelledby="q2-label">
+                    <label><input type="checkbox" name="q2_tech[]" value="css"> CSS</label>
+                    <label><input type="checkbox" name="q2_tech[]" value="html"> HTML</label>
+                    <label><input type="checkbox" name="q2_tech[]" value="sql"> SQL</label>
+                    <label><input type="checkbox" name="q2_tech[]" value="js"> JavaScript</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label for="q3-select">Q3. Choose a single semantic HTML element:</label>
+                <select id="q3-select" name="q3_semantic" required>
+                    <optgroup label="Sectioning content">
+                        <option value="article">&lt;article&gt;</option>
+                        <option value="section">&lt;section&gt;</option>
+                    </optgroup>
+                    <optgroup label="Phrasing content">
+                        <option value="span">&lt;span&gt;</option>
+                        <option value="em">&lt;em&gt;</option>
+                    </optgroup>
+                    <optgroup label="Non-semantic">
+                        <option value="div">&lt;div&gt;</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <label for="code-area">Q4. Paste or write a short HTML/CSS snippet:</label>
+                <textarea id="code-area" name="q4_code" rows="6" placeholder="/* You can type HTML or CSS here */" spellcheck="false"></textarea>
+            </div>
+
+            <div class="form-row">
+                <button type="submit">Submit Quiz</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
+

@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Node (if ever used)
+node_modules/
+dist/
+build/
+
+# Editors
+.idea/
+.vscode/
+*.log
+
