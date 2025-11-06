@@ -57,7 +57,7 @@
         input[type="email"]:invalid {
             border-color: #d33;
             outline-color: #d33;
-            background: color-mix(in srgb, #d33 6%, transparent);
+            background-color: rgba(211, 51, 51, 0.06);
         }
 
         .hint {
@@ -166,6 +166,7 @@
             <div class="form-row">
                 <label for="q3-select">Q3. Choose a single semantic HTML element:</label>
                 <select id="q3-select" name="q3_semantic" required>
+                    <option value="" disabled selected hidden>Select an option</option>
                     <optgroup label="Sectioning content">
                         <option value="article">&lt;article&gt;</option>
                         <option value="section">&lt;section&gt;</option>
